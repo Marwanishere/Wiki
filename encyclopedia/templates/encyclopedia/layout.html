@@ -12,7 +12,11 @@
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
                 <h2>Wiki</h2>
-                <form action = "{% url 'get' %}" method = "get">
+                <form action = "{% url 'get' %}" method = "post">
+                    {% csrf_token %}
+                    <!-- csrf verification code line from cs50.ai chatbot -->
+                    <!-- could have used get but I wanted to hide the url for additional  -->
+                    <!-- protection -->
                     <input class="search" type="text" name="title" placeholder="Search Encyclopedia">
                 </form>
                 <div>
