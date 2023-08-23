@@ -9,6 +9,7 @@ def index(request):
     })
 
 def get(request):
+    title = request.POST['title']
     return render (request, "encyclopedia/get.html", {
         "get": util.get_entry(title)
     })
