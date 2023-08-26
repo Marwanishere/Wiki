@@ -9,7 +9,8 @@
 
     <ul>
         {% for entry in entries %}
-            <li>{{ entry }}</li>
+        <!-- following line syntax aided by cs50.ai chatbot -->
+            <li><a href  ="get?title={{ entry }}">{{ entry }}</a></li>
         {% endfor %}
     </ul>
 
