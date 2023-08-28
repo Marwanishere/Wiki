@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Result:</h1>
-        <p><strong>{{ get }}</strong></p>
+    
+    {% if title != None %}
+        <h1>{{ title }} </h1>
+        <p> {{ get }}</p>
+    {% else %}
+    <h1><strong>404 error: page not found</strong></h1>
+    <!-- endif syntax from cs50.ai chatbot -->
+    {% endif %}
 {% endblock %}
