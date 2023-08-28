@@ -10,9 +10,14 @@
 
     <ul>
         {% for entry in entries %}
-        <!-- following line syntax aided by cs50.ai chatbot -->
-            <li><a href  ="get?title={{ entry }}">{{ entry }} {% csrf_token %}</a></li>
-
+        <!-- technique acquired from course cs50.ai chatbot and line below 
+        assisted by it also -->
+            <form action="{% url 'get' %}" method="post">
+                <!-- following form entry field assisted by cs50.ai chatbot -->
+                <input type="hidden" name="title" value="{{ entry }}">
+                <button type="submit">{{ entry }}</button>
+                {%csrf_token%}
+            </form>
         {% endfor %}
     </ul>
 
