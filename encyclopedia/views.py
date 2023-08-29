@@ -24,8 +24,15 @@ def get(request):
             "get": markdown_text
         })
     else :
-        title = None
-        return render (request, "encyclopedia/get.html", {
-            "title": title,
-            "get": markdown_text
+        return render (request, "encyclopedia/searchlist.html", {
+            "title": title
         })
+
+def inside(request, title):
+    entrieslist: util.list_entries()
+    # technique in line below attained from cs50.ai chatbot
+    result = [x for x in entrieslist if title in x]
+    # return function assisted by cs50.ai chatbot
+    return render(request, "encyclopedia/searchlist.html", {
+    "result": result
+})
