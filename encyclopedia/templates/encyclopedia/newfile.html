@@ -3,7 +3,13 @@
 {% block body %}
 
     <h1>New Page</h1>
-
-    
+    <!-- format of form below taken from www.w3schools.com -->
+    <form action="/newfile">
+        <p><label for="newpage">text</label></p>
+        <textarea id="newpage" name="newpage" rows="2" cols="5"></textarea>
+        <br>
+        <input type="submit" value="Create New Page">
+      </form>
+      
 
 {% endblock %}
