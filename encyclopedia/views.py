@@ -9,6 +9,9 @@ def index(request):
         "entries": util.list_entries()
     })
 
+def newfile(request):
+    return render(request, "encyclopedia/newfile.html")
+
 def get(request):
     title = request.POST['title']
     # following six lines that allow for a title to be dictated 
@@ -33,3 +36,4 @@ def get(request):
             "entries": matching_entries,
             "title" : title.lstrip('# ')
             })
+
