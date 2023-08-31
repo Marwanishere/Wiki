@@ -9,7 +9,12 @@ def index(request):
         "entries": util.list_entries()
     })
 
+# psuedocode for file below provided by cs50.ai chatbot
 def newfile(request):
+    if request.method == 'POST':
+        title = request.POST['newfilename']
+        content = request.POST['newpage']
+        util.save_entry(title, content)
     return render(request, "encyclopedia/newfile.html")
 
 def get(request):
