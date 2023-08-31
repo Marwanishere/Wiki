@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+    <h1>All Pages available with "{{ title }}"</h1>
+
+    <ul>
+        {% for x in result %}
+        <!-- technique acquired from course cs50.ai chatbot and line below 
+        assisted by it also -->
+            <form action="{% url 'get' %}" method="post">
+                <!-- following form entry field assisted by cs50.ai chatbot -->
+                <input type="hidden" name="title" value="{{ x }}">
+                <button type="submit">{{ x }}</button>
+                {%csrf_token%}
+            </form>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
