@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    newfile
+{% endblock %}
+
+{% block body %}
+
+    <h1>New Page</h1>
+
+    <ul>
+        {% for entry in entries %}
+        <!-- technique acquired from course cs50.ai chatbot and line below 
+        assisted by it also -->
+            <form action="{% url 'get' %}" method="post">
+                <!-- following form entry field assisted by cs50.ai chatbot -->
+                <input type="hidden" name="title" value="{{ entry }}">
+                <button type="submit">{{ entry }}</button>
+                {%csrf_token%}
+            </form>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
