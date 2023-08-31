@@ -29,7 +29,7 @@ def get(request):
         })
 
 def inside(request, title):
-    entrieslist: util.list_entries()
+    entrieslist = util.list_entries()
     # technique in line below attained from cs50.ai chatbot
     result = [x for x in entrieslist if title in x]
     # return function assisted by cs50.ai chatbot
