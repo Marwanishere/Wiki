@@ -2,18 +2,16 @@
 
 {% block body %}
 
-<h1>New Page</h1>
-    <!-- format of form below adapted from www.w3schools.com -->
-    <form action="/newfile" method="POST">
-        {% csrf_token %}
-        <!-- below two lines made with cs50.ai chatbot assistance -->
-        <p><label for="newfilename">Title</label></p>
-        <input id="newfilename" name="newfilename" type="text">
-        <p><label for="newpage">body</label></p>
-        <textarea id="newpage" name="newpage" rows="2" cols ="5"> </textarea><br>
-        <input type="submit" value="Create New Page">
-        
-    </form>
-      
-
+  <h1>New Page</h1>
+      <!-- format of form below adapted from www.w3schools.com -->
+      <form action="/newfile" method="POST">
+          {% csrf_token %}
+          <!-- below two lines made with cs50.ai chatbot assistance -->
+          <p><label for="newfilename">Title</label></p>
+          <input id="newfilename" name="newfilename" type="text">
+          <p><label for="newpage">Body</label></p>
+          <textarea id="newpage" name="newpage" rows="2" cols ="5"> </textarea><br>
+          <input type="submit" value="Create New Page">
+          
+      </form>
 {% endblock %}
