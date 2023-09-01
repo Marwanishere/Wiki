@@ -13,9 +13,10 @@ def index(request):
 def newfile(request):
     if request.method == 'POST':
         title = request.POST['newfilename']
-        content = request.POST['newpage']
+        content = "#" + request.POST['newfilename'] + "\n" + request.POST['newpage']
         util.save_entry(title, content)
     return render(request, "encyclopedia/newfile.html")
+
 
 def get(request):
     title = request.POST['title']
