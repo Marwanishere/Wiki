@@ -25,6 +25,18 @@ def newfile(request):
         })
     else:
         return render(request, "encyclopedia/newfile.html")
+    
+def editfile(request):
+    if request.method == 'POST':
+        title = request.POST['editfilename']
+        content = "#" + request.POST['editfilename'] + "\n" + request.POST['editpage']
+        util.save_entry(title, content)
+        return render(request, "encyclopedia/get.html", {
+            "title": title,
+            "get": content.lstrip("#")
+        })
+    else:
+        return render(request, "encyclopedia/editfile.html")
 
 def get(request):
     title = request.POST['title']

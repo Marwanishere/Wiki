@@ -7,8 +7,11 @@
 {% block body %}
     
     {% if title != None %}
+    <!-- following line taken and adapted from bootstrap online library -->
+        <a class="btn btn-primary" href="{% url 'editfile' %}" role="button">Edit page</a>
         <h1>{{ title }} </h1>
         <p> {{ get }}</p>
+        
     {% else %}
     <h1><strong>404 error: page not found</strong></h1>
     <!-- endif syntax from cs50.ai chatbot -->
