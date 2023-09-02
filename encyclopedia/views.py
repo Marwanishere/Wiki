@@ -21,7 +21,7 @@ def newfile(request):
             util.save_entry(title, content)
         return render(request, "encyclopedia/get.html", {
             "title": title,
-            "get": content.lstrip("#")
+            "get": content.lstrip("#" + title)
         })
     else:
         return render(request, "encyclopedia/newfile.html")
