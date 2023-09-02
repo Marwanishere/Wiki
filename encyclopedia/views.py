@@ -19,14 +19,17 @@ def newfile(request):
             return render(request, "encyclopedia/errorpageexists.html")
         else:
             util.save_entry(title, content)
-        return render(request, "encyclopedia/newfile.html")
+        return render(request, "encyclopedia/get.html", {
+            "title": title,
+            "get": content.lstrip("#")
+        })
     else:
         return render(request, "encyclopedia/newfile.html")
 
 def get(request):
     title = request.POST['title']
     # following six lines that allow for a title to be dictated 
-    # were made with the assitance of cs50.ai chatbot
+    # were made with cs50.ai chatbot
     # I also learned how to use visual studio's python debugger
     # in the process
     markdown_text = util.get_entry(title)
