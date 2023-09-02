@@ -16,13 +16,12 @@ def newfile(request):
         content = "#" + request.POST['newfilename'] + "\n" + request.POST['newpage']
         entries = util.list_entries()
         if title in entries:
-            return render(request, "errorpageexists.html")
+            return render(request, "encyclopedia/errorpageexists.html")
         else:
             util.save_entry(title, content)
         return render(request, "encyclopedia/newfile.html")
     else:
         return render(request, "encyclopedia/newfile.html")
-
 
 def get(request):
     title = request.POST['title']
