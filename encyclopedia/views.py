@@ -9,13 +9,19 @@ def index(request):
         "entries": util.list_entries()
     })
 
-# psuedocode for file below provided by cs50.ai chatbot
+# psuedocode for function below provided by cs50.ai chatbot
 def newfile(request):
     if request.method == 'POST':
         title = request.POST['newfilename']
         content = "#" + request.POST['newfilename'] + "\n" + request.POST['newpage']
-        util.save_entry(title, content)
-    return render(request, "encyclopedia/newfile.html")
+        entries = util.list_entries()
+        if title in entries:
+            return render(request, "errorpageexists.html")
+        else:
+            util.save_entry(title, content)
+        return render(request, "encyclopedia/newfile.html")
+    else:
+        return render(request, "encyclopedia/newfile.html")
 
 
 def get(request):
