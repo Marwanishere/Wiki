@@ -27,16 +27,17 @@ def newfile(request):
         return render(request, "encyclopedia/newfile.html")
     
 def editfile(request):
-    if request.method == 'POST':
-        title = request.POST['editfilename']
-        content = "#" + request.POST['editfilename'] + "\n" + request.POST['editpage']
-        util.save_entry(title, content)
-        return render(request, "encyclopedia/get.html", {
-            "title": title,
-            "get": content.lstrip("#" + title)
-        })
-    else:
-        return render(request, "encyclopedia/editfile.html")
+    # below line made using cs50.ai chatbot to get over
+    # a techical error (multivaluedictkeyerror) and to get 
+    #rid of errors due to filename containing newline characters
+    title = request.POST.get('title').strip()
+    content = util.get_entry(title)
+    content = content.lstrip(title)
+    util.save_entry(title, content)
+    return render(request, "encyclopedia/editfile.html", {
+        "title": title,
+        "get": content.lstrip("#" + title)
+    })
 
 def get(request):
     title = request.POST['title']

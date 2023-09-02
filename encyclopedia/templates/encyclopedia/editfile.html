@@ -7,8 +7,7 @@
       <form action="/editfile" method="POST">
           {% csrf_token %}
           <!-- below two lines made with cs50.ai chatbot assistance -->
-          <p><label for="editfilename">Title</label></p>
-          <input id="editfilename" name="editfilename" type="text">
+            {{ title }}
           <p><label for="editpage">Body</label></p>
           <textarea id="editpage" name="editpage" rows="2" cols ="5"> </textarea><br>
           <input type="submit" value="Submit Edited Page">
