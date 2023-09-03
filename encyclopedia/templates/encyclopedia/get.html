@@ -10,6 +10,7 @@
     <!-- following line taken and adapted from bootstrap online library -->
         <form method="POST" action="{% url 'editfile' %}">
             {% csrf_token %}
+            <input type="hidden" name="get" value="{{ get }}">
             <input type="hidden" name="title" value="{{ title }}">
             <input type="submit" value="Edit page" class="btn btn-primary">
         </form>

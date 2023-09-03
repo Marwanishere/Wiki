@@ -2,14 +2,13 @@
 
 {% block body %}
 
-  <h1>Edit Page</h1>
+  <h1>Edit page : {{ title }}</h1>
       <!-- format of form below adapted from www.w3schools.com -->
-      <form action="/editfile" method="POST">
+      <form action="/editfile" method="POST" action="{% url 'get' %}">
           {% csrf_token %}
           <!-- below two lines made with cs50.ai chatbot assistance -->
-            {{ title }}
-          <p><label for="editpage">Body</label></p>
-          <textarea id="editpage" name="editpage" rows="2" cols ="5"> </textarea><br>
+          <input type="hidden" name="title" value="{{ title }}">
+          <textarea id="editpage" name="editpage" rows="2" cols ="5">{{ get }}</textarea><br>
           <input type="submit" value="Submit Edited Page">
           
       </form>

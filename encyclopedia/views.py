@@ -31,13 +31,18 @@ def editfile(request):
     # a techical error (multivaluedictkeyerror) and to get 
     #rid of errors due to filename containing newline characters
     title = request.POST.get('title').strip()
-    content = util.get_entry(title)
-    content = content.lstrip(title)
-    util.save_entry(title, content)
-    return render(request, "encyclopedia/editfile.html", {
-        "title": title,
-        "get": content.lstrip("#" + title)
-    })
+    # changed the line below to collect new content,
+    #line made with cs50.ai chatbot assistance
+    new_content = request.POST.get('editpage')
+    #maybe load content and then load new content, not sure what to do tbh
+    if new_content != None:
+        util.save_entry(title, new_content)
+        return render(request, "encyclopedia/editfile.html", {
+            "title": title,
+            "get": new_content.lstrip("#" + title)
+        })
+    else:
+        return render(request, "encyclopedia/editfile.html")
 
 def get(request):
     title = request.POST['title']
