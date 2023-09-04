@@ -79,4 +79,4 @@ import random
 from django.shortcuts import redirect
 def randompage(request):
     entry = random.choice(util.list_entries())
-    return redirect ("/get.html", {'title': entry})
+    return redirect ("encyclopedia/get.html", {'entry': entry})

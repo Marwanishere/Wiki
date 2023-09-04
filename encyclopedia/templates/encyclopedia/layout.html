@@ -27,12 +27,14 @@
                     {% csrf_token %}
                 </div>
                 <div>
-                    <!-- technique acquired from course cs50.ai chatbot and line below 
-                    assisted by it also -->
-                    <form action="/randompage" method="post">
-                        {%csrf_token%}
-                        <button type="submit">Random Page</button>
-                    </form>
+                <!-- technique acquired from course cs50.ai chatbot and line below 
+                assisted by it also -->
+                <form action="{% url 'randompage' %}" method="post">
+                    {%csrf_token%}
+                    <!-- following form entry field assisted by cs50.ai chatbot -->
+                    <input type="hidden" name="title" value="{{ entry }}">
+                    <button type="submit">Random Page</button>
+                </form>
                 </div>
                 {% block nav %}
                 {% endblock %}
