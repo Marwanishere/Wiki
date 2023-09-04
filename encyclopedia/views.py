@@ -34,7 +34,6 @@ def editfile(request):
     # changed the line below to collect new content,
     #line made with cs50.ai chatbot assistance
     new_content = request.POST.get('editpage')
-    #maybe load content and then load new content, not sure what to do tbh
     if new_content != None:
         content =  "#" + title+ "\n" + new_content
         util.save_entry(title, content)
