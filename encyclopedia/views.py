@@ -42,8 +42,10 @@ def editfile(request):
             "get": new_content.lstrip("#" + title)
         })
     else:
+        new_content = util.get_entry(title)
         return render(request, "encyclopedia/editfile.html",{
-            "title":title
+            "title":title,
+            "old_content": new_content
         })
 
 def get(request):

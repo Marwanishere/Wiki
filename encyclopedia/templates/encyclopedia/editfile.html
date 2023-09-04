@@ -8,8 +8,11 @@
           {% csrf_token %}
           <!-- below two lines made with cs50.ai chatbot assistance -->
           <input type="hidden" name="title" value="{{ title }}">
-          <textarea id="editpage" name="editpage" rows="2" cols ="5">{{ get }}</textarea><br>
+          <input type="hidden" name="get" value="{{ get }}">
+          <p>the title line starts with '#' edit underneath</p>
+          <textarea id="editpage" name="editpage" rows="4" cols ="50">{{ old_content }}</textarea><br>
           <input type="submit" value="Submit Edited Page">
           
       </form>
+      <p></p>
 {% endblock %}
