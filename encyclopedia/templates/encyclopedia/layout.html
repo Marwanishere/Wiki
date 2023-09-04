@@ -27,7 +27,12 @@
                     {% csrf_token %}
                 </div>
                 <div>
-                    Random Page
+                    <!-- technique acquired from course cs50.ai chatbot and line below 
+                    assisted by it also -->
+                    <form action="/randompage" method="post">
+                        {%csrf_token%}
+                        <button type="submit">Random Page</button>
+                    </form>
                 </div>
                 {% block nav %}
                 {% endblock %}

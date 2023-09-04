@@ -73,3 +73,10 @@ def get(request):
             "title" : title.lstrip('# ')
             })
 
+#below function and import made with cs50.ai chatbot assistance
+#below 2 lines acquired using cs50.ai chatbot
+import random
+from django.shortcuts import redirect
+def randompage(request):
+    entry = random.choice(util.list_entries())
+    return redirect ("/get.html", {'title': entry})
