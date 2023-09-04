@@ -37,12 +37,14 @@ def editfile(request):
     #maybe load content and then load new content, not sure what to do tbh
     if new_content != None:
         util.save_entry(title, new_content)
-        return render(request, "encyclopedia/editfile.html", {
+        return render(request, "encyclopedia/get.html", {
             "title": title,
             "get": new_content.lstrip("#" + title)
         })
     else:
-        return render(request, "encyclopedia/editfile.html")
+        return render(request, "encyclopedia/editfile.html",{
+            "title":title
+        })
 
 def get(request):
     title = request.POST['title']
