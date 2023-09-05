@@ -9,6 +9,7 @@ urlpatterns = [
     path("errorpageexists", views.newfile, name = "errorpageexists"),
     path("editfile", views.editfile, name = "editfile"),
     path("editfile", views.get, name = "editfile"),
-    path("get", views.randompage, name = "randompage")
+    path("randompage", views.randompage, name = "randompage"),
+    path("randompage/<str:title>", views.randomget, name = "randomget")
 ]
     

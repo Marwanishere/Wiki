@@ -79,4 +79,17 @@ import random
 from django.shortcuts import redirect
 def randompage(request):
     entry = random.choice(util.list_entries())
-    return redirect ("encyclopedia/get.html", {'entry': entry})
+    return redirect ("randomget", title= entry)
+
+def randomget(request, title):
+    # following six lines that allow for a title to be dictated 
+    # were made with cs50.ai chatbot
+    markdown_text = util.get_entry(title)
+    lines = markdown_text.split('\n')
+    title = title.lstrip('# '),
+    title = lines[0] if lines else None
+    markdown_text = markdown_text.lstrip(title)
+    return render (request, "encyclopedia/randompage.html", {
+        "title": title.lstrip('# '),
+        "get": markdown_text
+    })

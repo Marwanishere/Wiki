@@ -1,14 +1,12 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    get
+    randomget
 {% endblock %}
 
 {% block body %}
-    
-    {% if title != None %}
-    <!-- following line taken and adapted from bootstrap online library -->
-        <form method="POST" action="{% url 'editfile' %}">
+<!-- following line taken and adapted from bootstrap online library -->
+        <form method="GET, POST" action="{% url 'editfile' %}">
             {% csrf_token %}
             <input type="hidden" name="get" value="{{ get }}">
             <input type="hidden" name="title" value="{{ title }}">
@@ -16,9 +14,4 @@
         </form>
         <h1>{{ title }} </h1>
         <p> {{ get }}</p>
-        
-    {% else %}
-    <h1><strong>404 error: page not found</strong></h1>
-    <!-- endif syntax from cs50.ai chatbot -->
-    {% endif %}
 {% endblock %}
